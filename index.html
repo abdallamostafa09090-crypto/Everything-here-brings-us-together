@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكاننا الخاص ❤️</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: sans-serif; background: #ffe5ec; color: #4a0e17; text-align: center; }
+        .screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+        .box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 90%; max-width: 400px; }
+        input { padding: 12px; width: 80%; margin-bottom: 15px; border: 1px solid #ffb3c6; border-radius: 8px; text-align: center; font-size: 16px; outline: none; }
+        button { background: #ff4d6d; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 16px; width: 50%; }
+        button:hover { background: #ff758f; }
+        .gallery { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 20px; width: 100%; }
+        .card { background: white; padding: 10px; border-radius: 10px; width: 90%; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: auto; max-height: 350px; object-fit: cover; border-radius: 8px; }
+        h1, h2, h3 { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen" class="screen">
+        <div class="box">
+            <h2>أهلاً بيكِ في عالمنا  🔐</h2>
+            <p>اكتبي الباسورد عشان تدخلي:</p>
+            <input type="password" id="pass" placeholder="كلمة السر...">
+            <br>
+            <button onclick="check()">دخول</button>
+            <p id="err" style="color: red; display: none; margin-top: 10px;">الباسورد غلط، حاولي تاني! 😢</p>
+        </div>
+    </div>
+
+    <div id="main-content" class="screen" style="display: none;">
+        <h1>حكايتنا سوا ❤️</h1>
+        <p>كل لحظة حلوة عشناها مع بعض بالدنيا...</p>
+        
+        <div class="box" style="margin-bottom: 20px;">
+            <h3>أغنيتك المفضلة 🎵</h3>
+            <audio id="music" src="LINK_HERE" controls loop style="width: 100%;"></audio>
+        </div>
+
+        <div class="gallery">
+            <div class="card">
+                <img src="LINK_HER_PHOTO" alt="صورتها">
+                <p>جمالك اللي ملوش زي 😍</p>
+            </div>
+            <div class="card">
+                <img src="LINK_MY_PHOTO" alt="صورتي">
+                <p>وأنا جنبك دايماً 🧔</p>
+            </div>
+            <div class="card">
+                <img src="LINK_OUR_PHOTO" alt="صورنا سوا">
+                <p>ضحكتنا مع بعض ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function check() {
+            // هنا الباسورد مضبوط على 12345، تقدر تغيره لأي كلمة تختارها
+            if (document.getElementById('pass').value === '12345') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'flex';
+                // محاولة تشغيل الأغنية تلقائياً
+                document.getElementById('music').play().catch(e => console.log("المتصفح طلب تشغيل يدوي"));
+            } else {
+                document.getElementById('err').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
